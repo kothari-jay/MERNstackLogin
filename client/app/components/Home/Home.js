@@ -8,6 +8,7 @@ import {
   setInStorage
 } from '../../utils/storage';
 
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -63,6 +64,7 @@ this.onTextboxChangeSignUpLastName = this.onTextboxChangeSignUpLastName.bind(thi
           console.log('json', json);
           if (json.success) {
             setInStorage('the_main_app', { token: json.token });
+            window.open('https://webrtcvchat.herokuapp.com', "_blank");
             this.setState({
               signInError: json.message,
               isLoading: false,

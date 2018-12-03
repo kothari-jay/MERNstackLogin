@@ -123,8 +123,8 @@ module.exports = (app) => {
       const newUser = new User();
 
       newUser.email = email;
-      newUser.firstName = firstName;
-      newUser.lastName = lastName;
+      newUser.firstName = newUser.encryptText(firstName);
+      newUser.lastName = newUser.encryptText(lastName);
       newUser.password = newUser.generateHash(password);
       newUser.save((err, user) => {
         if (err) {
